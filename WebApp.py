@@ -179,7 +179,7 @@ if page == "📊 EDA Dashboard":
 # -------- PAGE 2: ML Prediction -------- #
 if page == "🤖 Purchase Probability":
     st.title("🤖 ML Prediction: Purchase Probability")
-
+    df = st.session_state['data']
     # User input
     customer_id = st.number_input("🔢 Enter Customer ID:", min_value=None, step=None)
     unique_description = df['Description'].unique()
@@ -264,6 +264,7 @@ if page == "📊 RFM Analysis":
     
         # Chart 1: Top 10 Products by Total Sales
         if i == 0:
+            segment_counts = rfm['Segment'].value_counts().reset_index()
             fig1 = px.bar(segment_counts, x='index', y='Segment', color='index', 
                  title='Customer Segment Distribution', 
                  labels={'index': 'Segment', 'Segment': 'Count'},

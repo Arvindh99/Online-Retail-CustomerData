@@ -265,7 +265,7 @@ if page == "📊 RFM Analysis":
         # Chart 1: Top 10 Products by Total Sales
         if i == 0:
             segment_counts = rfm['Segment'].value_counts().reset_index()
-            fig1 = px.bar(segment_counts, x='Segment', y='count', color='index', 
+            fig1 = px.bar(segment_counts, x='Segment', y='count', color='Segment', 
                  title='Customer Segment Distribution',
                  color_discrete_sequence=px.colors.qualitative.Pastel)
             col1.plotly_chart(fig1)

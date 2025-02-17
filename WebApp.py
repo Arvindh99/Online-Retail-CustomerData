@@ -182,10 +182,8 @@ if page == "🤖 Purchase Probability":
     df = st.session_state['data']
     # User input
     customer_id = st.number_input("🔢 Enter Customer ID:", min_value=None, step=None)
-    unique_description = df['Description'].unique()
-    description = st.multiselect("🛍️ Enter Product Description:",unique_description)
-
-    # Convert description for prediction
+    description = st.selectbox("🛍️ Select Product Description:", unique_description)
+    
     if description:
         description_factor = pd.factorize([description])[0][0]
 
